@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "173444539882",
+    "firebase_url": "https://ticketingdb-e8011.firebaseio.com",
+    "project_id": "ticketingdb-e8011",
+    "storage_bucket": "ticketingdb-e8011.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:173444539882:android:c3a2f847ed95221dab7e93",
+        "android_client_info": {
+          "package_name": "com.damishs.ticketingrealtimedb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "173444539882-thv3dpgnntl9jeg3ean5vrgn4cgc5au6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkYqGTkOKSWFpbK_iMEQFVqQr6DGEiQ08"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "173444539882-thv3dpgnntl9jeg3ean5vrgn4cgc5au6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
