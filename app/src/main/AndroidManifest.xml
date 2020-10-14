@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.damishs.ticketingrealtimedb">
+    package="com.damishs.ticketingrealtimedb"
+    >
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -9,20 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar">
+        <activity android:name=".ui.Login.SignUp2"></activity>
+        <activity android:name=".ui.Login.HomeActivity" />
         <activity
             android:name=".Main2Activity"
-            android:label="@string/title_activity_main2">
-
-        </activity>
-
+            android:label="@string/title_activity_main2" />
         <activity
             android:name=".ui.Login.SignUp"
-            android:label="SignUp">
-
-
-
-        </activity>
-
+            android:label="SignUp" />
         <activity
             android:name=".ui.Login.Login"
             android:label="Login">
@@ -32,7 +28,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

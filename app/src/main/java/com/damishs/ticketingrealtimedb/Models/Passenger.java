@@ -8,21 +8,19 @@ public class Passenger {
     String tokenID;
     String accountNo;
     String username;
-    String password;
 
 
     public Passenger() {
 
     }
 
-    public Passenger(String id, String nic, String name, String tokenID, String accountNo, String username, String password) {
+    public Passenger(String id, String nic, String name, String tokenID, String accountNo, String username) {
         this.id = id;
         this.nic = nic;
         this.name = name;
         this.tokenID = tokenID;
         this.accountNo = accountNo;
         this.username = username;
-        this.password = password;
     }
 
     public String getId() {
@@ -47,10 +45,6 @@ public class Passenger {
 
     public String getUsername() {
         return username;
-    }
-
-    public String getPassword() {
-        return password;
     }
 
 
