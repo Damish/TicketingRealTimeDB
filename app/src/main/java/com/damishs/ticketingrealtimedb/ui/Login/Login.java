@@ -27,8 +27,6 @@ public class Login extends AppCompatActivity {
 
     FirebaseAuth mFirebaseAuth;
 
-    Button btnCreateAccount;
-
     private  FirebaseAuth.AuthStateListener mAuthStateListener;
 
     @Override
@@ -44,19 +42,10 @@ public class Login extends AppCompatActivity {
         password = findViewById(R.id.editTextPassword);
         btnSignIn = findViewById(R.id.btnLogin);
         tvSignUp = findViewById(R.id.textViewSignUp);
-        btnCreateAccount = findViewById(R.id.btnCreateAccount);
 
         //Sign out if already signed in
         FirebaseAuth.getInstance().signOut();
 
-        btnCreateAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(),SignUp.class);
-                startActivity(i);
-                finish();
-            }
-        });
 
 
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
@@ -130,13 +119,13 @@ public class Login extends AppCompatActivity {
             }
         });
 
-//        tvSignUp.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intentToSignUp = new Intent(Login.this,SignUp2.class);
-//                startActivity(intentToSignUp);
-//            }
-//        });
+        tvSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentToSignUp = new Intent(Login.this,SignUp.class);
+                startActivity(intentToSignUp);
+            }
+        });
 
     }
 
