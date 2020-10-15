@@ -48,11 +48,12 @@
         android:layout_marginTop="15dp"
         android:text="Token ID" />
 
-    <TextView
-        android:id="@+id/textViewTokenID1"
+    <EditText
+        android:id="@+id/editTextTokenGenerated"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:background="@android:color/transparent"
         android:text=""
         android:textAlignment="center"
         android:textSize="16sp" />

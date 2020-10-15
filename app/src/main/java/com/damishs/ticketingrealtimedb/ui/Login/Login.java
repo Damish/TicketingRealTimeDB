@@ -2,7 +2,6 @@ package com.damishs.ticketingrealtimedb.ui.Login;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,20 +11,32 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.damishs.ticketingrealtimedb.Models.Reader;
 import com.damishs.ticketingrealtimedb.R;
+import com.damishs.ticketingrealtimedb.ui.Reader.TokenReader;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Login extends AppCompatActivity {
 
     EditText emailID,password;
-    Button btnSignIn;
+    Button btnSignIn,btnReaderLogin;
     TextView tvSignUp;
 
     FirebaseAuth mFirebaseAuth;
+
+    DatabaseReference databaseReader;
+
+    static Boolean isTokenReader = false;
 
     private  FirebaseAuth.AuthStateListener mAuthStateListener;
 
@@ -42,19 +53,17 @@ public class Login extends AppCompatActivity {
         password = findViewById(R.id.editTextPassword);
         btnSignIn = findViewById(R.id.btnLogin);
         tvSignUp = findViewById(R.id.textViewSignUp);
+        btnReaderLogin = findViewById(R.id.btnReaderLogin);
+
 
         //Sign out if already signed in
         FirebaseAuth.getInstance().signOut();
 
 
-
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
-
             FirebaseUser mFirebaseUser = mFirebaseAuth.getCurrentUser();
-
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-
                 if( mFirebaseUser != null){
                     Toast.makeText(Login.this, "Youre Logged in", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(Login.this,HomeActivity.class);
@@ -62,7 +71,6 @@ public class Login extends AppCompatActivity {
                 }else{
                     Toast.makeText(Login.this, "Please Login", Toast.LENGTH_SHORT).show();
                 }
-
             }
         };
 
@@ -85,37 +93,39 @@ public class Login extends AppCompatActivity {
                 }
                 else if(! (email.isEmpty() && pwd.isEmpty() )){
 
-
                     mFirebaseAuth.signInWithEmailAndPassword(emailID.getText().toString(), password.getText().toString()).addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-
                             if(!task.isSuccessful()){
                                 Toast.makeText(Login.this, "Login Error", Toast.LENGTH_SHORT).show();
                             }
                             else{
+                                final String LoggedUserEmail = emailID.getText().toString();
 
-                                String LoggedUserEmail = emailID.getText().toString();
+                                if(LoggedUserEmail.equals("Admin@gmail.com")){
 
-                                Toast.makeText(Login.this, "FirebaseUser : " + LoggedUserEmail, Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Login.this, "FirebaseAdmin : " + LoggedUserEmail, Toast.LENGTH_SHORT).show();
+                                    Intent intentToHome = new Intent(Login.this,Admin.class);
+                                    Bundle bundle = new Bundle();
+                                    bundle.putString("USEREMAIL",  LoggedUserEmail);
+                                    intentToHome.putExtras(bundle);
+                                    startActivity(intentToHome);
 
-                                Intent intentToHome = new Intent(Login.this,HomeActivity.class);
+                                }else{
 
-                                Bundle bundle = new Bundle();
-                                bundle.putString("USEREMAIL",  LoggedUserEmail);
-                                intentToHome.putExtras(bundle);
-
-                                startActivity(intentToHome);
-
+                                    Toast.makeText(Login.this, "FirebaseUser : " + LoggedUserEmail, Toast.LENGTH_SHORT).show();
+                                    Intent intentToHome = new Intent(Login.this,HomeActivity.class);
+                                    Bundle bundle = new Bundle();
+                                    bundle.putString("USEREMAIL",  LoggedUserEmail);
+                                    intentToHome.putExtras(bundle);
+                                    startActivity(intentToHome);
+                                }
                             }
-
                         }
                     });
-
                 }else{
                     Toast.makeText(Login.this, "Error Occured", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
 
@@ -127,7 +137,18 @@ public class Login extends AppCompatActivity {
             }
         });
 
+
+        btnReaderLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentToSignUp = new Intent(Login.this,LoginReader.class);
+                startActivity(intentToSignUp);
+            }
+        });
+
+
     }
+
 
     @Override
     protected void onStart() {

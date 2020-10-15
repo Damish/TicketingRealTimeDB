@@ -31,35 +31,20 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        android:text="Login"
+        android:text="Reader Login"
         android:textColor="#FFFFFF"
         android:textSize="26sp" />
 
     <EditText
-        android:id="@+id/editTextName"
+        android:id="@+id/editTextReaderID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="20dp"
         android:background="@android:color/transparent"
         android:ems="10"
-        android:hint="Username"
+        android:hint="Reader ID"
         android:inputType="textPersonName"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#B4B2B2"
-        android:textSize="25sp" />
-
-    <EditText
-        android:id="@+id/editTextPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:background="@android:color/transparent"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textColorHint="#B4B2B2"
@@ -73,22 +58,6 @@
         android:layout_gravity="center"
         android:text="Login" />
 
-    <TextView
-        android:id="@+id/textViewSignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:text="Not have an account? Sign up here"
-        android:textSize="14sp"
-        android:textColor="#FFFFFF" />
 
-    <Button
-        android:id="@+id/btnReaderLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"
-        android:text="Login-Reader" />
 
 </LinearLayout>

@@ -135,7 +135,7 @@ public class SignUp extends AppCompatActivity {
 
                                         //part-2 on create account- Add New Token data
                                         DatabaseReference databaseReferenceGeneratedToken = FirebaseDatabase.getInstance().getReference("tokens").child(tokenID);
-                                        Token token = new Token(tokenID, passengerID);
+                                        Token token = new Token(tokenID, passengerID,"","","","","");
                                         //overwrite data to created id
                                         databaseReferenceGeneratedToken.setValue(token);
 

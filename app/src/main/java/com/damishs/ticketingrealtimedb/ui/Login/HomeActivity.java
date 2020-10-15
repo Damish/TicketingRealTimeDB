@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.damishs.ticketingrealtimedb.Models.Passenger;
@@ -19,14 +19,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import android.util.Log;
-import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
     Button btnLogOut;
     TextView textViewUserID;
 
-    TextView textViewTokenID1,textViewName1,textViewAccountNo1,textViewPassengerID1,textViewNic1,textViewUsername1;
+    TextView textViewName1,textViewAccountNo1,textViewPassengerID1,textViewNic1,textViewUsername1;
+
+    EditText editTextTokenGenerated;
 
     DatabaseReference databaseArtists;
 
@@ -40,7 +41,7 @@ public class HomeActivity extends AppCompatActivity {
 
         btnLogOut =findViewById(R.id.btnLogOut);
         textViewUserID =findViewById(R.id.textViewUserID);
-        textViewTokenID1=findViewById(R.id.textViewTokenID1);
+        editTextTokenGenerated=findViewById(R.id.editTextTokenGenerated);
         textViewName1=findViewById(R.id.textViewName1);
         textViewAccountNo1=findViewById(R.id.textViewAccountNo1);
         textViewPassengerID1=findViewById(R.id.textViewPassengerID1);
@@ -72,14 +73,14 @@ public class HomeActivity extends AppCompatActivity {
                         Log.d(TAG,"Passenger Username: "+passenger.getUsername());
                         Log.d(TAG,"Passenger Token ID: "+passenger.getTokenID());
 
-                        textViewTokenID1.setText(passenger.getTokenID());
+                        editTextTokenGenerated.setText(passenger.getTokenID());
                         textViewName1.setText(passenger.getName());
                         textViewAccountNo1.setText(passenger.getAccountNo());
                         textViewPassengerID1.setText(passenger.getId());
                         textViewNic1.setText(passenger.getNic());
                         textViewUsername1.setText(passenger.getUsername());
 
-
+                        
                     }
 
                 }
@@ -97,7 +98,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intToMain = new Intent(HomeActivity.this,Login.class);
+                Intent intToMain = new Intent(HomeActivity.this, Login.class);
                 startActivity(intToMain);
                 finish();
             }
