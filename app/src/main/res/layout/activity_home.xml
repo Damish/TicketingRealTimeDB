@@ -7,6 +7,13 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".ui.Login.HomeActivity">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/textViewWelcome"
@@ -48,6 +55,7 @@
         android:layout_marginTop="15dp"
         android:text="Token ID" />
 
+
     <EditText
         android:id="@+id/editTextTokenGenerated"
         android:layout_width="match_parent"
@@ -57,6 +65,22 @@
         android:text=""
         android:textAlignment="center"
         android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:layout_marginTop="15dp"
+        android:text="My Trips" />
+
+    <ListView
+        android:id="@+id/listViewMyTrips"
+        android:layout_width="match_parent"
+        android:layout_height="338dp"
+        android:layout_margin="20dp" />
+
 
     <TextView
         android:id="@+id/textView6"
@@ -155,7 +179,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewWelcome" />
-
-
+</LinearLayout>
+</ScrollView>
 
 </LinearLayout>

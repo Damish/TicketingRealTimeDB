@@ -88,6 +88,10 @@ public class TokenReader extends AppCompatActivity {
                                 updateArrival(tokenID,readerLocation,timeArrival);
 
 
+                                //calculate fare amount
+
+
+
 
                                 Token logsToken = new Token(tokenID,customerID,departureTime,departureVenue,timeArrival,readerLocation,fareAmount);
 
