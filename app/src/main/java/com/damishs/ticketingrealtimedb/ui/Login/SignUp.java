@@ -1,5 +1,6 @@
 package com.damishs.ticketingrealtimedb.ui.Login;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.text.TextUtils;
@@ -10,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +20,10 @@ import com.damishs.ticketingrealtimedb.Models.Account;
 import com.damishs.ticketingrealtimedb.Models.Passenger;
 import com.damishs.ticketingrealtimedb.Models.Token;
 import com.damishs.ticketingrealtimedb.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,12 +40,15 @@ public class SignUp extends AppCompatActivity {
     DatabaseReference databasePassenger;
     DatabaseReference databaseToken;
 
+    FirebaseAuth mFirebaseAuth;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_signup);
 
+        mFirebaseAuth = FirebaseAuth.getInstance();
 
         databaseAccount = FirebaseDatabase.getInstance().getReference("accounts");
         databasePassenger = FirebaseDatabase.getInstance().getReference("passengers");
@@ -59,7 +68,6 @@ public class SignUp extends AppCompatActivity {
         btnGetToken.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 //generate token id
                 String tokenId = databaseToken.push().getKey();
                 textViewToken.setText(tokenId);
@@ -69,7 +77,6 @@ public class SignUp extends AppCompatActivity {
                 btnGetToken.setVisibility(View.GONE);
             }
         });
-
 
         btnAddAccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,15 +96,12 @@ public class SignUp extends AppCompatActivity {
                 } else {
                     Toast.makeText(view.getContext(), "Fill Blanks", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
-
 
         btnCreateAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
 
                 String accountNo = textViewBillingDetails.getText().toString();
 
@@ -106,31 +110,51 @@ public class SignUp extends AppCompatActivity {
                 databaseReferenceGeneratedPassengerID.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        String passengerID = dataSnapshot.getValue(String.class);
+                        final String passengerID = dataSnapshot.getValue(String.class);
 
 
                         //part-1 on create account- Add New Passenger data
-                        String name = editTextName.getText().toString();
-                        String nic = editTextNic.getText().toString();
-                        String tokenID = textViewToken.getText().toString();
-                        String accountNo = textViewBillingDetails.getText().toString();
-                        String username = editTextUsername.getText().toString();
-                        String password = editTextPassword.getText().toString();
+
+                        final String name = editTextName.getText().toString();
+                        final String nic = editTextNic.getText().toString();
+                        final String tokenID = textViewToken.getText().toString();
+                        final String accountNo = textViewBillingDetails.getText().toString();
+                        final String username = editTextUsername.getText().toString();
+                        final String password = editTextPassword.getText().toString();
 
                         if (!(TextUtils.isEmpty(name)) && !TextUtils.isEmpty(nic) && !TextUtils.isEmpty(tokenID) && !TextUtils.isEmpty(accountNo) && !TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
 
-                            Passenger passenger = new Passenger(passengerID, nic, name, tokenID, accountNo, username, password);
-                            //overwrite data to created id
-                            databasePassenger.child(passengerID).setValue(passenger);
+                            mFirebaseAuth.createUserWithEmailAndPassword(editTextUsername.getText().toString(), editTextPassword.getText().toString()).addOnCompleteListener(SignUp.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()){
+
+                                        Passenger passenger = new Passenger(passengerID, nic, name, tokenID, accountNo, username);
+                                        //overwrite data to created id
+                                        databasePassenger.child(passengerID).setValue(passenger);
+
+                                        //part-2 on create account- Add New Token data
+                                        DatabaseReference databaseReferenceGeneratedToken = FirebaseDatabase.getInstance().getReference("tokens").child(tokenID);
+                                        Token token = new Token(tokenID, passengerID,"","","","","");
+                                        //overwrite data to created id
+                                        databaseReferenceGeneratedToken.setValue(token);
 
 
-                            //part-2 on create account- Add New Token data
-                            DatabaseReference databaseReferenceGeneratedToken = FirebaseDatabase.getInstance().getReference("tokens").child(tokenID);
-                            Token token = new Token(tokenID, passengerID);
-                            //overwrite data to created id
-                            databaseReferenceGeneratedToken.setValue(token);
-                            Toast.makeText(SignUp.this, "Account Created Sucessfully", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(SignUp.this, "Signup Sucessful", Toast.LENGTH_SHORT).show();
 
+                                        String LoggedUserEmail = username;
+                                        Intent intentToHome = new Intent(SignUp.this,HomeActivity.class);
+                                        Bundle bundle = new Bundle();
+                                        bundle.putString("USEREMAIL",  LoggedUserEmail);
+                                        intentToHome.putExtras(bundle);
+
+                                        startActivity(intentToHome);
+
+                                    }else{
+                                        Toast.makeText(SignUp.this, "Signup Unsucessful, Please try Again", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
 
                         } else {
                             Toast.makeText(SignUp.this, "Fill Blanks", Toast.LENGTH_SHORT).show();
@@ -142,10 +166,8 @@ public class SignUp extends AppCompatActivity {
                     }
                 });
 
-
             }
         });
-
 
     }
 
