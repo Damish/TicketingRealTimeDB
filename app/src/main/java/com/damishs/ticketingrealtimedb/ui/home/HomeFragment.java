@@ -33,7 +33,7 @@ public class HomeFragment extends Fragment {
     Button buttonAdd;
     Spinner spinnerGenres;
 
-    DatabaseReference databaseArtists;
+    DatabaseReference databaseArtists,databaseCustomerID;
 
     ListView listViewArtist;
 
@@ -105,6 +105,13 @@ public class HomeFragment extends Fragment {
 
             }
         });
+
+
+
+
+
+
+
 
 
         return root;
