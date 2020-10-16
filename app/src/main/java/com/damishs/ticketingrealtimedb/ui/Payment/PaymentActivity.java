@@ -1,4 +1,4 @@
-package com.damishs.ticketingrealtimedb.ui.dashboard;
+package com.damishs.ticketingrealtimedb.ui.Payment;
 
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
@@ -14,15 +14,13 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.damishs.ticketingrealtimedb.R;
-import com.damishs.ticketingrealtimedb.ui.home.Artist;
+import com.damishs.ticketingrealtimedb.ui.Payment.Paymentmodel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,7 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Calendar;
 
-public class DashboardFragment extends Fragment {
+public class PaymentActivity extends AppCompatActivity {
 
     private EditText cardName,card_no,CVV,amount;
     private TextView balance;
@@ -44,25 +42,25 @@ public class DashboardFragment extends Fragment {
     private DatabaseReference updateaccountbalance;
     private String accountId;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_dashboard);
 
-        View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
-        cardName=(EditText)root.findViewById(R.id.editTextCardName);
-        card_no=(EditText)root.findViewById(R.id.editTextNumberPassword);
-        CVV=(EditText)root.findViewById(R.id.editText_CVV);
-        amount=(EditText)root.findViewById(R.id.editText_amount);
-        radio1=(RadioButton)root.findViewById(R.id.radioButton5);
-        radio2=(RadioButton)root.findViewById(R.id.radioButton6);
-        balance=(TextView)root.findViewById(R.id.textView2_balance);
-        paybtn=(Button)root.findViewById(R.id.button_pay);
+        cardName=(EditText)findViewById(R.id.editTextCardName);
+        card_no=(EditText)findViewById(R.id.editTextNumberPassword);
+        CVV=(EditText)findViewById(R.id.editText_CVV);
+        amount=(EditText)findViewById(R.id.editText_amount);
+        radio1=(RadioButton)findViewById(R.id.radioButton5);
+        radio2=(RadioButton)findViewById(R.id.radioButton6);
+        balance=(TextView)findViewById(R.id.textView2_balance);
+        paybtn=(Button)findViewById(R.id.button_pay);
 
 
 
         //datepicker
 
-        datepicker=(Button)root.findViewById(R.id.datepicker);
+        datepicker=(Button)findViewById(R.id.datepicker);
 
         datepicker.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +70,7 @@ public class DashboardFragment extends Fragment {
                 int month = c.get(Calendar.MONTH);
                 int day = c.get(Calendar.DAY_OF_MONTH);
 
-                DatePickerDialog datePickerDialog=new DatePickerDialog(getContext(),R.style.UserDialog, new DatePickerDialog.OnDateSetListener() {
+                DatePickerDialog datePickerDialog=new DatePickerDialog(PaymentActivity.this,R.style.UserDialog, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         finalyear=year;
@@ -118,7 +116,6 @@ public class DashboardFragment extends Fragment {
         });
 
 
-        return root;
     }
 
     //add credits
@@ -146,11 +143,11 @@ public class DashboardFragment extends Fragment {
 
             //overwrite data to created id
             databasePayment.child(id).setValue(paymentmodel);
-            Toast.makeText(this.getContext(), "payment added", Toast.LENGTH_SHORT).show();
+            Toast.makeText(PaymentActivity.this, "payment added", Toast.LENGTH_SHORT).show();
 
             updateaccountbalance.child("availableBalance").setValue(sum);
 
-            AlertDialog.Builder ald=new AlertDialog.Builder(getContext());
+            AlertDialog.Builder ald=new AlertDialog.Builder(PaymentActivity.this);
             ald.setMessage(""+amount1+" Credits added Successfully!!!  your Current credits-"+sum+"");
             ald.setPositiveButton("ok", new DialogInterface.OnClickListener() {
                 @Override
@@ -162,7 +159,7 @@ public class DashboardFragment extends Fragment {
 
 
         } else {
-            Toast.makeText(this.getContext(), "You should enter missing fields!!!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(PaymentActivity.this, "You should enter missing fields!!!", Toast.LENGTH_SHORT).show();
         }
 
     }
