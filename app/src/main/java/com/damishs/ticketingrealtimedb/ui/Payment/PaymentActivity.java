@@ -32,7 +32,7 @@ import java.util.Calendar;
 public class PaymentActivity extends AppCompatActivity {
 
     private EditText cardName,card_no,CVV,amount;
-    private TextView balance;
+    private TextView balance,textViewAccNo;
     private Button datepicker;
     private RadioButton radio1,radio2;
     private int finalyear,finalmonth,finalday;
@@ -55,7 +55,7 @@ public class PaymentActivity extends AppCompatActivity {
         radio2=(RadioButton)findViewById(R.id.radioButton6);
         balance=(TextView)findViewById(R.id.textView2_balance);
         paybtn=(Button)findViewById(R.id.button_pay);
-
+        textViewAccNo=findViewById(R.id.textViewAccNo);
 
 
         //datepicker
@@ -70,7 +70,7 @@ public class PaymentActivity extends AppCompatActivity {
                 int month = c.get(Calendar.MONTH);
                 int day = c.get(Calendar.DAY_OF_MONTH);
 
-                DatePickerDialog datePickerDialog=new DatePickerDialog(PaymentActivity.this,R.style.UserDialog, new DatePickerDialog.OnDateSetListener() {
+                DatePickerDialog datePickerDialog=new DatePickerDialog(PaymentActivity.this,R.style.UserDialog1, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         finalyear=year;
@@ -85,7 +85,12 @@ public class PaymentActivity extends AppCompatActivity {
             }
         });
 
-        accountId="-MJh5Bt_5B1vfNtXJz4J";
+
+        Bundle bundle = getIntent().getExtras();
+        accountId = bundle.getString("USERACCNO");
+        textViewAccNo.setText(accountId);
+
+        //accountId="-MJh5Bt_5B1vfNtXJz4J";
         databasePayment = FirebaseDatabase.getInstance().getReference("payment");
         updateaccountbalance=FirebaseDatabase.getInstance().getReference("accounts/"+accountId);
 

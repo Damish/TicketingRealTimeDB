@@ -11,12 +11,13 @@
         android:theme="@style/Theme.Design.Light.NoActionBar">
         <activity android:name=".ui.Lists.MyTripsActivity"></activity>
         <activity android:name=".ui.Login.Admin" />
-        <activity android:name=".ui.Login.SignUp2" />
         <activity android:name=".ui.Login.HomeActivity" />
         <activity android:name=".ui.Reader.TokenReader" />
         <activity
             android:name=".Main2Activity"
-            android:label="@string/title_activity_main2" />
+            android:label="@string/title_activity_main2" >
+
+        </activity>
         <activity
             android:name=".ui.Login.SignUp"
             android:label="SignUp" />
@@ -26,19 +27,21 @@
         <activity
             android:name=".ui.Login.Login"
             android:label="Login">
-            android:windowSoftInputMode="adjustPan"
-            android:label="@string/title_activity_main2">
-        </activity>
 
-        <activity
-            android:name=".ui.Payment.PaymentActivity"
-            android:label="PaymentActivity">
-          
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+
+        </activity>
+
+        <activity
+            android:name=".ui.Payment.PaymentActivity"
+            android:label="PaymentActivity"
+            android:windowSoftInputMode="adjustPan">
+
 
         </activity>
 
