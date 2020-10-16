@@ -8,6 +8,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+
         android:theme="@style/Theme.Design.Light.NoActionBar">
         <activity android:name=".ui.Lists.MyTripsActivity"></activity>
         <activity android:name=".ui.Login.Admin" />
@@ -28,6 +29,12 @@
             android:name=".ui.Login.Login"
             android:label="Login">
 
+        <activity android:name=".ui.Manager.DisplayTravelInfo"></activity>
+        <activity android:name=".ui.Manager.DisplayFareDetails" />
+        <activity android:name=".ui.Manager.DisplayRoutes" />
+        <activity android:name=".ui.Manager.AddRoutes" />
+        <activity android:name=".ui.Manager.ManagerHome">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -44,7 +51,6 @@
 
 
         </activity>
-
 
     </application>
 
