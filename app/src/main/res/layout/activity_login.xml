@@ -40,8 +40,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="100dp"
-        android:background="@android:color/transparent"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/edit_text_border_1"
         android:ems="10"
         android:hint="Username"
         android:inputType="textPersonName"
@@ -56,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        android:background="@android:color/transparent"
+        android:background="@drawable/edit_text_border_1"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
@@ -67,11 +67,16 @@
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_width="104dp"
+        android:layout_height="40dp"
         android:layout_gravity="center"
-        android:text="Login" />
+        android:layout_marginTop="50dp"
+        android:background="@drawable/custom_btn_d1"
+        android:drawableStart="@drawable/ic_send_24dp"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp"
+        android:text="Login"
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/textViewSignUp"
@@ -85,10 +90,15 @@
 
     <Button
         android:id="@+id/btnReaderLogin"
-        android:layout_width="wrap_content"
+        android:layout_width="151dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_gravity="center"
-        android:text="Login-Reader" />
+        android:layout_marginTop="40dp"
+        android:background="@drawable/custom_btn_reset_d2"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:drawableStart="@drawable/ic_chrome_reader_24dp"
+        android:padding="10dp"
+        android:text="Reader Login" />
 
 </LinearLayout>

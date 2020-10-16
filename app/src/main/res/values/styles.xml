@@ -12,7 +12,7 @@
 
     //manjari
 
-    <style name="UserDialog" parent="Theme.AppCompat.Light.Dialog">
+    <style name="UserDialog1" parent="Theme.AppCompat.Light.Dialog">
         <item name="colorAccent">@android:color/holo_green_dark</item>
     </style>
 
