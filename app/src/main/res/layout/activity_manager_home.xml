@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_bg_Ashk"
+    android:orientation="vertical"
+    tools:context=".ui.Manager.ManagerHome">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/color_bg_Dark">
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="80dp"
+            android:layout_height="71dp"
+            android:background="@color/color_bg_Dark"
+            app:srcCompat="@drawable/guardicon" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="30dp"
+            android:text="Admin Panel"
+            android:textAlignment="center"
+            android:textColor="#ffff"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_bg_Ashk"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/button_route_Details"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_marginHorizontal="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="#ababa0"
+            android:drawableLeft="@drawable/routeiconk"
+            android:text="Route Details" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_bg_Ashk"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/button_fare_details"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_marginHorizontal="50dp"
+            android:layout_marginBottom="10dp"
+            android:background="#ababa0"
+            android:drawableLeft="@drawable/farek"
+            android:text="Fare Collection" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_bg_Ashk"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_TravelInfo"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_marginHorizontal="50dp"
+            android:layout_marginBottom="10dp"
+            android:background="#ababa0"
+            android:drawableLeft="@drawable/infoiconk"
+            android:text="Travel Info" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button5Add_Routes"
+            android:layout_width="match_parent"
+            android:background="@color/color_bg_Ashk"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+
+</LinearLayout>
