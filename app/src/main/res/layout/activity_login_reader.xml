@@ -30,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="80dp"
         android:text="Reader Login"
         android:textColor="#FFFFFF"
         android:textSize="26sp" />
@@ -38,12 +38,12 @@
     <EditText
         android:id="@+id/editTextReaderID"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="42dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:background="@android:color/transparent"
+        android:background="@drawable/edit_text_border_1"
         android:ems="10"
-        android:hint="Reader ID"
+        android:hint="Enter Reader ID"
         android:inputType="textPersonName"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
@@ -52,12 +52,16 @@
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_width="104dp"
+        android:layout_height="40dp"
         android:layout_gravity="center"
-        android:text="Login" />
-
+        android:layout_marginTop="50dp"
+        android:background="@drawable/custom_btn_d1"
+        android:drawableStart="@drawable/ic_send_24dp"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp"
+        android:text="Login"
+        android:textColor="#FFFFFF" />
 
 
 </LinearLayout>

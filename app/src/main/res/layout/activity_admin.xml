@@ -5,24 +5,36 @@
     android:background="#2C2C2C">
 
 
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="50dp"
         android:text="Admin Dashboard"
         android:textColor="#FFFFFF"
         android:textSize="26sp" />
+
+    <Button
+        android:id="@+id/btnRouteManagement"
+        android:layout_width="296dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="41dp"
+        android:background="@drawable/custom_btn_reset_d2"
+        android:drawableStart="@drawable/ic_train_black_24dp"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp"
+        android:text="Route Management portal"
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:text="Add Reader"
+        android:layout_marginTop="60dp"
+        android:text="Register Reader"
         android:textColor="#FFFFFF"
         android:textSize="19sp" />
 
@@ -30,10 +42,10 @@
     <EditText
         android:id="@+id/readerName"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="42dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:background="@android:color/transparent"
+        android:background="@drawable/edit_text_border_1"
         android:ems="10"
         android:hint="Reader Name"
         android:inputType="textPersonName"
@@ -45,10 +57,10 @@
     <EditText
         android:id="@+id/editTextLocationAdmin"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="42dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:background="@android:color/transparent"
+        android:background="@drawable/edit_text_border_1"
         android:ems="10"
         android:hint="Reader Location"
         android:inputType="textPersonName"
@@ -59,11 +71,16 @@
 
     <Button
         android:id="@+id/btnSignUpAdmin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="151dp"
+        android:layout_height="40dp"
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
-        android:text="Add Reader"/>
+        android:background="@drawable/custom_btn_blue"
+        android:drawableStart="@drawable/ic_chrome_reader_24dp"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp"
+        android:text="Add reader"
+        android:textColor="#FFFFFF" />
 
 
     <TextView
@@ -84,15 +101,27 @@
         android:text=""
         android:textColor="#FFFFFF"
         android:textSize="19sp" />
-
-    <Button
-        android:id="@+id/btnLogOut"
+    <TextView
+        android:id="@+id/textView43"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="( please save above generated reader id to login to reader )"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+    <Button
+        android:id="@+id/btnLogOut"
+        android:layout_width="128dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
         android:layout_marginTop="41dp"
+        android:background="@drawable/custom_btn_logout"
+        android:drawableStart="@drawable/ic_exit_to_app_black_24dp"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp"
         android:text="Log out"
-        android:layout_gravity="center" />
-
+        android:textColor="#FFFFFF" />
 
 
 </LinearLayout>

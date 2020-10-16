@@ -101,20 +101,22 @@
 
         <Button
             android:id="@+id/btn_invalid"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="50dp"
+            android:layout_width="133dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="138dp"
             android:layout_marginBottom="20dp"
-            android:layout_weight="1"
-            android:background="@color/color_btn_color"
-            android:drawableLeft="@drawable/findk"
-            android:paddingHorizontal="50dp"
-            android:text="Find" />
+            android:background="@drawable/custom_btn_d1"
+            android:drawableLeft="@drawable/ic_search_black_24dp"
+            android:paddingStart="20dp"
+            android:text="Search"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal">
 
         <com.github.mikephil.charting.charts.BarChart
