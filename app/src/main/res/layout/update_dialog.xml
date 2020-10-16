@@ -33,4 +33,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Delete" />
+
+
+    <Button
+        android:id="@+id/buttonUpdateGenre"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Set Default Genre" />
+
 </LinearLayout>

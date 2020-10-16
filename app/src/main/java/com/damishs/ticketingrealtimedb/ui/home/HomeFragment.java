@@ -33,7 +33,7 @@ public class HomeFragment extends Fragment {
     Button buttonAdd;
     Spinner spinnerGenres;
 
-    DatabaseReference databaseArtists;
+    DatabaseReference databaseArtists,databaseCustomerID;
 
     ListView listViewArtist;
 
@@ -75,6 +75,8 @@ public class HomeFragment extends Fragment {
 
                 Artist artist = artistList.get(i);
 
+
+
                 showUpdateDialog(artist.getArtistID(), artist.getArtistName());
 
                 return false;
@@ -105,6 +107,13 @@ public class HomeFragment extends Fragment {
         });
 
 
+
+
+
+
+
+
+
         return root;
     }
 
@@ -123,6 +132,8 @@ public class HomeFragment extends Fragment {
         final Button buttonUpdate = dialogView.findViewById(R.id.buttonUpdate);
         final Spinner spinnerGenres = dialogView.findViewById(R.id.spinnerGenres);
         final Button buttonDelete = dialogView.findViewById(R.id.buttonDelete);
+        final Button buttonUpdateGenre = dialogView.findViewById(R.id.buttonUpdateGenre);
+
 
         dialogBuilder.setTitle("Updating Artist " + artistName);
         editTextName.setText(artistName);
@@ -160,6 +171,20 @@ public class HomeFragment extends Fragment {
 
         });
 
+
+        buttonUpdateGenre.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                updateGenre(artistId,"Default Genre");
+                alertDialog.dismiss();
+            }
+
+        });
+
+
+
     }
 
 
@@ -183,6 +208,17 @@ public class HomeFragment extends Fragment {
         databaseReference.setValue(artist);
 
         Toast.makeText(this.getContext(), "Artist Updated Sucessfully", Toast.LENGTH_SHORT).show();
+
+        return true;
+    }
+
+    private boolean updateGenre(String id,String genre) {
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("artists").child(id).child("artistGenre");
+
+        databaseReference.setValue(genre);
+
+        Toast.makeText(this.getContext(), "Genre Updated Sucessfully", Toast.LENGTH_SHORT).show();
 
         return true;
     }
