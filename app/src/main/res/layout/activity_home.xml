@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".ui.Login.HomeActivity">
 <ScrollView
     android:layout_width="match_parent"
@@ -66,6 +66,14 @@
         android:textAlignment="center"
         android:textSize="16sp" />
 
+    <Button
+        android:id="@+id/btnMyTrips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="View My Trips"
+        android:layout_gravity="center"/>
+
     <TextView
         android:id="@+id/textView12"
         android:layout_width="match_parent"
@@ -75,11 +83,6 @@
         android:layout_marginTop="15dp"
         android:text="My Trips" />
 
-    <ListView
-        android:id="@+id/listViewMyTrips"
-        android:layout_width="match_parent"
-        android:layout_height="338dp"
-        android:layout_margin="20dp" />
 
 
     <TextView

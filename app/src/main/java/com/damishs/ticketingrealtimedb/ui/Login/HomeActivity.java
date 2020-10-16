@@ -18,6 +18,7 @@ import com.damishs.ticketingrealtimedb.Models.Passenger;
 import com.damishs.ticketingrealtimedb.Models.Token;
 import com.damishs.ticketingrealtimedb.R;
 import com.damishs.ticketingrealtimedb.ui.Lists.MyTrip;
+import com.damishs.ticketingrealtimedb.ui.Lists.MyTripsActivity;
 import com.damishs.ticketingrealtimedb.ui.Lists.MyTripsList;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -31,23 +32,14 @@ import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
-    Button btnLogOut;
+    Button btnLogOut,btnMyTrips;
     TextView textViewUserID;
-
     TextView textViewName1, textViewAccountNo1, textViewPassengerID1, textViewNic1, textViewUsername1;
-
     EditText editTextTokenGenerated;
 
     DatabaseReference databasePassengers, databaseLogs;
 
-
-    ListView listViewMyTrips;
-
-    List<MyTrip> MyTripsList;
-
-
     private static final String TAG = HomeActivity.class.getSimpleName();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,10 +54,8 @@ public class HomeActivity extends AppCompatActivity {
         textViewPassengerID1 = findViewById(R.id.textViewPassengerID1);
         textViewNic1 = findViewById(R.id.textViewNic1);
         textViewUsername1 = findViewById(R.id.textViewUsername1);
+        btnMyTrips = findViewById(R.id.btnMyTrips);
 
-        listViewMyTrips = findViewById(R.id.listViewMyTrips);
-
-        MyTripsList = new ArrayList<>();
 
         Bundle bundle = getIntent().getExtras();
         final String UserEmail = bundle.getString("USEREMAIL");
@@ -96,50 +86,12 @@ public class HomeActivity extends AppCompatActivity {
                         textViewNic1.setText(passenger.getNic());
                         textViewUsername1.setText(passenger.getUsername());
 
-
-                        databaseLogs = FirebaseDatabase.getInstance().getReference("logs");
-                        databaseLogs.addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                                MyTripsList.clear();
-
-                                for (DataSnapshot child : dataSnapshot.getChildren()) {
-
-                                    Token log = child.getValue(Token.class);
-
-                                    if (log.getTokenID().equals(passenger.getTokenID())) {
-                                        Toast.makeText(HomeActivity.this, "Log Message Departure: " + log.getDepartureVenue(), Toast.LENGTH_LONG).show();
-
-
-                                        MyTrip myTrip = new MyTrip(log.getDepartureTime(), log.getDepartureVenue(), log.getArrivalTime(), log.getArrivalVenue(), log.getFareAmount());
-                                        MyTripsList.add(myTrip);
-
-
-                                        ArrayAdapter adapter = new MyTripsList(HomeActivity.this, MyTripsList);
-                                        listViewMyTrips.setAdapter(adapter);
-
-                                    }
-
-                                }
-                            }
-
-                            @Override
-                            public void onCancelled(DatabaseError databaseError) {
-
-                            }
-                        });
-
-
                     }
-
                 }
-
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
 
@@ -153,6 +105,20 @@ public class HomeActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+
+        btnMyTrips.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentToHome = new Intent(HomeActivity.this, MyTripsActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("USEREMAIL",  textViewUsername1.getText().toString());
+                intentToHome.putExtras(bundle);
+                startActivity(intentToHome);
+            }
+        });
+
+
 
     }
 

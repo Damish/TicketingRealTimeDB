@@ -90,7 +90,8 @@ public class TokenReader extends AppCompatActivity {
 
                                 //calculate fare amount
 
-
+                                int amount = 1000;
+                                fareAmount = String.valueOf(amount);
 
 
                                 Token logsToken = new Token(tokenID,customerID,departureTime,departureVenue,timeArrival,readerLocation,fareAmount);
