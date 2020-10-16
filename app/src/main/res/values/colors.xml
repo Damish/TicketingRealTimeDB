@@ -6,4 +6,10 @@
 
     <color name="color_bg_Dark_m1">#2C2C2C</color>
     <color name="color_bg_Ash_m1">#dbdbd6</color>
+
+    <color name="color_bg_Dark">#2C2C2C</color>
+    <color name="color_bg_Ashk">#dbdbd6</color>
+  
+    <color name="color_btn_color">#ababa0</color>
+
 </resources>

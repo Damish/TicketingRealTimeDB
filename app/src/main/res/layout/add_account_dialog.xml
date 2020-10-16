@@ -67,9 +67,14 @@
 
     <Button
         android:id="@+id/buttonCreatePaymentAccount"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
+        android:layout_width="271dp"
         android:layout_height="wrap_content"
-        android:text="Create Payment Account" />
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/custom_btn_reset_d2"
+        android:drawableStart="@drawable/ic_monetization_on_black_24dp"
+        android:paddingStart="20dp"
+        android:text="Create Payment Account"
+        android:textColor="#FFFFFF" />
 
 </LinearLayout>

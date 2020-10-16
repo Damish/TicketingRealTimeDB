@@ -58,68 +58,73 @@ public class TokenReader extends AppCompatActivity {
             public void onClick(View view) {
 
                 String id = editTextTokenID.getText().toString();
-                databaseTokens = FirebaseDatabase.getInstance().getReference("tokens").child(id);
+                if(id.equals("")){
+                    editTextTokenID.setError("Please enter token id");
+                    editTextTokenID.requestFocus();
+                }else {
 
-                //check if its a token reader
-                databaseTokens.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.getValue() != null) {
 
-                            Token token = snapshot.getValue(Token.class);
+                    databaseTokens = FirebaseDatabase.getInstance().getReference("tokens").child(id);
 
-                            String tokenID = token.getTokenID();
-                            String customerID = token.getCustomerID();
-                            String departureTime = token.getDepartureTime();
-                            String departureVenue = token.getDepartureVenue();
-                            String arrivalTime = token.getArrivalTime();
-                            String arrivalVenue = token.getArrivalVenue();
-                            String fareAmount = token.getFareAmount();
+                    //check if its a token reader
+                    databaseTokens.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (snapshot.getValue() != null) {
+
+                                Token token = snapshot.getValue(Token.class);
+
+                                String tokenID = token.getTokenID();
+                                String customerID = token.getCustomerID();
+                                String departureTime = token.getDepartureTime();
+                                String departureVenue = token.getDepartureVenue();
+                                String arrivalTime = token.getArrivalTime();
+                                String arrivalVenue = token.getArrivalVenue();
+                                String fareAmount = token.getFareAmount();
 
 
 //                            Toast.makeText(TokenReader.this, "Token ID tapped: "+snapshot.getValue(), Toast.LENGTH_LONG).show();
 
-                            if(departureVenue.equals("")){
-                                String timeDeparture = LocalDateTime.now().toString();
-                                updateDeparture(tokenID,readerLocation,timeDeparture);
+                                if (departureVenue.equals("")) {
+                                    String timeDeparture = LocalDateTime.now().toString();
+                                    updateDeparture(tokenID, readerLocation, timeDeparture);
 
-                            }else if(arrivalVenue.equals("")){
-                                String timeArrival = LocalDateTime.now().toString();
-                                updateArrival(tokenID,readerLocation,timeArrival);
-
-
-                                //calculate fare amount
-
-                                int amount = 1000;
-                                fareAmount = String.valueOf(amount);
+                                } else if (arrivalVenue.equals("")) {
+                                    String timeArrival = LocalDateTime.now().toString();
+                                    updateArrival(tokenID, readerLocation, timeArrival);
 
 
-                                Token logsToken = new Token(tokenID,customerID,departureTime,departureVenue,timeArrival,readerLocation,fareAmount);
+                                    //calculate fare amount
 
-                                //Create trip details logs here
-                                DatabaseReference databaseReferenceLogs = FirebaseDatabase.getInstance().getReference("logs");
-                                String logId = databaseReferenceLogs.push().getKey();
-                                databaseReferenceLogs.child(logId).setValue(logsToken);
+                                    int amount = 1000;
+                                    fareAmount = String.valueOf(amount);
 
 
+                                    Token logsToken = new Token(tokenID, customerID, departureTime, departureVenue, timeArrival, readerLocation, fareAmount);
 
-                                resetTokenData(tokenID);
+                                    //Create trip details logs here
+                                    DatabaseReference databaseReferenceLogs = FirebaseDatabase.getInstance().getReference("logs");
+                                    String logId = databaseReferenceLogs.push().getKey();
+                                    databaseReferenceLogs.child(logId).setValue(logsToken);
 
+
+                                    resetTokenData(tokenID);
+
+                                } else {
+                                    Toast.makeText(TokenReader.this, "Token ID Entered :" + tokenID, Toast.LENGTH_SHORT).show();
+                                }
+
+                            } else {
+                                Toast.makeText(TokenReader.this, "Invalid Token", Toast.LENGTH_SHORT).show();
                             }
-                            else{
-                                Toast.makeText(TokenReader.this, "Token ID Entered :"+ tokenID, Toast.LENGTH_SHORT).show();
-                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
                         }
-                        else{
-                            Toast.makeText(TokenReader.this, "Invalid Token", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
+                    });
+                }
 
             }
         });

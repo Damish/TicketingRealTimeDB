@@ -3,6 +3,7 @@ package com.damishs.ticketingrealtimedb.ui.Login;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.damishs.ticketingrealtimedb.Models.Reader;
 import com.damishs.ticketingrealtimedb.R;
@@ -35,6 +37,8 @@ public class LoginReader extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_reader);
 
+        Window window = LoginReader.this.getWindow();
+        window.setStatusBarColor(ContextCompat.getColor(LoginReader.this, R.color.color_bg_Dark));
 
         btnSignIn = findViewById(R.id.btnLogin);
         editTextReaderName = findViewById(R.id.editTextReaderID);

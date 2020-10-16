@@ -2,6 +2,7 @@ package com.damishs.ticketingrealtimedb.ui.Payment;
 
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -20,6 +21,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.damishs.ticketingrealtimedb.R;
+import com.damishs.ticketingrealtimedb.ui.Lists.MyTripsActivity;
+import com.damishs.ticketingrealtimedb.ui.Login.HomeActivity;
 import com.damishs.ticketingrealtimedb.ui.Payment.Paymentmodel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -33,7 +36,7 @@ public class PaymentActivity extends AppCompatActivity {
 
     private EditText cardName,card_no,CVV,amount;
     private TextView balance,textViewAccNo;
-    private Button datepicker;
+    private Button datepicker,btnGoBack2;
     private RadioButton radio1,radio2;
     private int finalyear,finalmonth,finalday;
     private Button paybtn;
@@ -56,7 +59,7 @@ public class PaymentActivity extends AppCompatActivity {
         balance=(TextView)findViewById(R.id.textView2_balance);
         paybtn=(Button)findViewById(R.id.button_pay);
         textViewAccNo=findViewById(R.id.textViewAccNo);
-
+        btnGoBack2=(Button)findViewById(R.id.btnGoBack2);
 
         //datepicker
 
@@ -120,6 +123,15 @@ public class PaymentActivity extends AppCompatActivity {
             }
         });
 
+
+        btnGoBack2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intToMain = new Intent(PaymentActivity.this, HomeActivity.class);
+                startActivity(intToMain);
+                finish();
+            }
+        });
 
     }
 

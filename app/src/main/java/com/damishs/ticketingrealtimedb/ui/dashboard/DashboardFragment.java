@@ -2,6 +2,7 @@ package com.damishs.ticketingrealtimedb.ui.dashboard;
 
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -22,6 +23,8 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.damishs.ticketingrealtimedb.R;
+import com.damishs.ticketingrealtimedb.ui.Lists.MyTripsActivity;
+import com.damishs.ticketingrealtimedb.ui.Login.HomeActivity;
 import com.damishs.ticketingrealtimedb.ui.home.Artist;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -116,6 +119,8 @@ public class DashboardFragment extends Fragment {
                 AddCredits();
             }
         });
+
+
 
 
         return root;

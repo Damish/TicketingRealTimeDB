@@ -3,6 +3,7 @@ package com.damishs.ticketingrealtimedb.ui.Login;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.damishs.ticketingrealtimedb.Models.Reader;
 import com.damishs.ticketingrealtimedb.R;
@@ -44,6 +46,8 @@ public class Login extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Window window = Login.this.getWindow();
+        window.setStatusBarColor(ContextCompat.getColor(Login.this, R.color.color_bg_Dark));
 
         setContentView(R.layout.activity_login);
 
@@ -113,7 +117,8 @@ public class Login extends AppCompatActivity {
 
                                 }else{
 
-                                    Toast.makeText(Login.this, "FirebaseUser : " + LoggedUserEmail, Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Login.this, "You're Logged in!", Toast.LENGTH_SHORT).show();
+                                    //Toast.makeText(Login.this, "FirebaseUser : " + LoggedUserEmail, Toast.LENGTH_SHORT).show();
                                     Intent intentToHome = new Intent(Login.this,HomeActivity.class);
                                     Bundle bundle = new Bundle();
                                     bundle.putString("USEREMAIL",  LoggedUserEmail);

@@ -4,10 +4,11 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo_ic"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+
         android:theme="@style/Theme.Design.Light.NoActionBar">
         <activity android:name=".ui.Lists.MyTripsActivity"></activity>
         <activity android:name=".ui.Login.Admin" />
@@ -26,13 +27,23 @@
             android:label="LoginReader"></activity>
         <activity
             android:name=".ui.Login.Login"
-            android:label="Login">
+            android:label="SL Digital Transport">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+
+        </activity>
+
+        <activity android:name=".ui.Manager.DisplayTravelInfo"></activity>
+        <activity android:name=".ui.Manager.DisplayFareDetails" />
+        <activity android:name=".ui.Manager.DisplayRoutes" />
+        <activity android:name=".ui.Manager.AddRoutes" />
+        <activity android:name=".ui.Manager.ManagerHome">
+
 
 
         </activity>
@@ -44,7 +55,6 @@
 
 
         </activity>
-
 
     </application>
 

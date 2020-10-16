@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Day_type">
+        <item>SelectDay....</item>
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+    </string-array>
+    <string-array name="Time_type">
+        <item>Select time...</item>
+        <item>8.30-12.30</item>
+        <item>12.30-4.30</item>
+        <item>4.30-8.30</item>
+    </string-array>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</resources>
