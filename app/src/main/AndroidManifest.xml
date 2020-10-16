@@ -11,13 +11,25 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Main2Activity"
+            android:windowSoftInputMode="adjustPan"
             android:label="@string/title_activity_main2">
+
+        </activity>
+
+
+        <activity
+            android:name=".ui.Payment.PaymentActivity"
+            android:label="PaymentActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
+
     </application>
 
 </manifest>
