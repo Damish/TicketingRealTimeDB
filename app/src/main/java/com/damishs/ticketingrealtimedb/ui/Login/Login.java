@@ -82,8 +82,8 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String email = emailID.getText().toString();
-                String pwd = password.getText().toString();
+                String email = emailID.getText().toString().trim();
+                String pwd = password.getText().toString().trim();
 
                 if(email.isEmpty()){
                     emailID.setError("Please enter email id");
@@ -97,14 +97,14 @@ public class Login extends AppCompatActivity {
                 }
                 else if(! (email.isEmpty() && pwd.isEmpty() )){
 
-                    mFirebaseAuth.signInWithEmailAndPassword(emailID.getText().toString(), password.getText().toString()).addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
+                    mFirebaseAuth.signInWithEmailAndPassword(emailID.getText().toString().trim(), password.getText().toString().trim()).addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(!task.isSuccessful()){
                                 Toast.makeText(Login.this, "Login Error", Toast.LENGTH_SHORT).show();
                             }
                             else{
-                                final String LoggedUserEmail = emailID.getText().toString();
+                                final String LoggedUserEmail = emailID.getText().toString().trim();
 
                                 if(LoggedUserEmail.equals("Admin@gmail.com")){
 
