@@ -8,21 +8,52 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+
+        android:theme="@style/Theme.Design.Light.NoActionBar">
+        <activity android:name=".ui.Lists.MyTripsActivity"></activity>
+        <activity android:name=".ui.Login.Admin" />
+        <activity android:name=".ui.Login.HomeActivity" />
+        <activity android:name=".ui.Reader.TokenReader" />
+        <activity
+            android:name=".Main2Activity"
+            android:label="@string/title_activity_main2" >
+
+        </activity>
+        <activity
+            android:name=".ui.Login.SignUp"
+            android:label="SignUp" />
+        <activity
+            android:name=".ui.Login.LoginReader"
+            android:label="LoginReader"></activity>
+        <activity
+            android:name=".ui.Login.Login"
+            android:label="Login">
+
         <activity android:name=".ui.Manager.DisplayTravelInfo"></activity>
         <activity android:name=".ui.Manager.DisplayFareDetails" />
         <activity android:name=".ui.Manager.DisplayRoutes" />
         <activity android:name=".ui.Manager.AddRoutes" />
         <activity android:name=".ui.Manager.ManagerHome">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+
         </activity>
+
         <activity
-            android:name=".Main2Activity"
-            android:label="@string/title_activity_main2" />
+            android:name=".ui.Payment.PaymentActivity"
+            android:label="PaymentActivity"
+            android:windowSoftInputMode="adjustPan">
+
+
+        </activity>
+
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
