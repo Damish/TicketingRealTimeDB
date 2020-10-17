@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@color/color_bg_Dark"
     tools:context=".ui.Login.HomeActivity">
 <ScrollView
     android:layout_width="match_parent"
@@ -15,28 +16,66 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
+
+
     <TextView
         android:id="@+id/textViewWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="53dp"
-        android:text="Welcome You're Logged in" />
+        android:layout_marginTop="38dp"
+        android:textSize="30sp"
+        android:text="Welcome You're Logged in"
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/textViewUserID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:text="Hello,Your email"
-        android:layout_gravity="center"
         android:textAlignment="center"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.448"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="8dp">
+
+
+        <Button
+            android:id="@+id/btnMyTrips"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_btn_d2"
+            android:drawableStart="@drawable/ic_directions_transit_black_24dp"
+            android:paddingLeft="14dp"
+            android:layout_marginLeft="40sp"
+            android:paddingRight="14dp"
+            android:text="My Trips"
+            android:textColor="#FFFFFF"/>
+
+
+        <Button
+            android:id="@+id/btnAddCredits"
+            android:layout_width="153dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="40sp"
+            android:background="@drawable/custom_btn_d2_red"
+            android:drawableStart="@drawable/ic_credit_card_black_24dp"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            android:text="Add Credits"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
 
 
     <ImageView
@@ -46,14 +85,26 @@
         android:layout_marginTop="10dp"
         android:src="@drawable/ic_ca_img_user"></ImageView>
 
+
+    <TextView
+        android:id="@+id/textViewLoading"
+        android:layout_width="match_parent"
+        android:layout_height="620dp"
+        android:layout_marginTop="15dp"
+        android:text="Loading data, Please wait !"
+        android:textAlignment="center"
+        android:textColor="#C4C1C1"
+        android:textSize="23sp" />
+
     <TextView
         android:id="@+id/textView11"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textSize="18sp"
         android:layout_marginTop="15dp"
-        android:text="Token ID" />
+        android:text="Token ID"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
 
 
     <EditText
@@ -64,42 +115,8 @@
         android:background="@android:color/transparent"
         android:text=""
         android:textAlignment="center"
+        android:textColor="#FFFFFF"
         android:textSize="16sp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-
-    <Button
-        android:id="@+id/btnMyTrips"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="View My Trips"
-        android:layout_margin="8dp"
-        android:layout_gravity="center"/>
-
-        <Button
-            android:id="@+id/btnAddCredits"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"
-            android:layout_weight="1"
-            android:text="Add Credits" />
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:layout_marginTop="15dp"
-        android:text="My Trips" />
 
 
 
@@ -107,10 +124,11 @@
         android:id="@+id/textView6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textSize="18sp"
         android:layout_marginTop="15dp"
-        android:text="Name" />
+        android:text="Name"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/textViewName1"
@@ -119,87 +137,105 @@
         android:layout_marginTop="5dp"
         android:text=""
         android:textAlignment="center"
+        android:textColor="#FFFFFF"
         android:textSize="16sp" />
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textSize="18sp"
         android:layout_marginTop="15dp"
-        android:text="Account No" />
+        android:text="Account No"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
     <TextView
         android:id="@+id/textViewAccountNo1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textSize="16sp"
         android:layout_marginTop="5dp"
-        android:text="" />
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textSize="18sp"
         android:layout_marginTop="15dp"
-        android:text="Passenger ID" />
+        android:text="Passenger ID"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
     <TextView
         android:id="@+id/textViewPassengerID1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textSize="16sp"
         android:layout_marginTop="5dp"
-        android:text="" />
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textSize="18sp"
         android:layout_marginTop="15dp"
-        android:text="Nic" />
+        android:text="Nic"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
     <TextView
         android:id="@+id/textViewNic1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textSize="16sp"
         android:layout_marginTop="5dp"
-        android:text="" />
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textSize="18sp"
         android:layout_marginTop="15dp"
-        android:text="Username" />
+        android:text="Username"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
     <TextView
         android:id="@+id/textViewUsername1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textSize="16sp"
         android:layout_marginTop="5dp"
-        android:text="" />
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/btnLogOut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="41dp"
-        android:text="Log out"
+        android:layout_width="128dp"
+        android:layout_height="40dp"
         android:layout_gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewWelcome" />
+        android:layout_marginTop="41dp"
+        android:background="@drawable/custom_btn_logout"
+        android:drawableStart="@drawable/ic_exit_to_app_black_24dp"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp"
+        android:layout_marginBottom="30dp"
+        android:text="Log out"
+        android:textColor="#FFFFFF" />
+
+
+
 </LinearLayout>
 </ScrollView>
 

@@ -5,24 +5,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/color_bg_Dark"
     tools:context=".ui.Lists.MyTripsActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
 
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textAlignment="center"
-    android:text="My Trips"
-    android:layout_marginTop="20sp"
-    android:textSize="24sp">
 
-</TextView>
+        <Button
+            android:id="@+id/btnGoBack"
+            android:layout_width="wrap_content"
+            android:layout_height="31dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="40sp"
+            android:layout_marginTop="19dp"
+            android:background="@drawable/custom_btn_d2"
+            android:drawableStart="@drawable/ic_arrow_back_black_24dp"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            android:text="back"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="157dp"
+            android:text="My Trips"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp">
+
+        </TextView>
+    </RelativeLayout>
 
     <ListView
         android:id="@+id/listViewMyTrips"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="5dp" />
+        android:layout_margin="8dp" />
 
 
 </LinearLayout>

@@ -9,39 +9,69 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/color_bg_Dark_m1">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/color_bg_Dark">
 
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+
+
+            <Button
+                android:id="@+id/btnGoBack2"
+                android:layout_width="wrap_content"
+                android:layout_height="31dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="40sp"
+                android:layout_marginTop="19dp"
+                android:background="@drawable/custom_btn_d2"
+                android:drawableStart="@drawable/ic_arrow_back_black_24dp"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp"
+                android:text="back"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="81dp"
+                android:text="Recharge Account"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="28sp">
+
+            </TextView>
+        </RelativeLayout>
         <TextView
-            android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Recharge Token"
+            android:layout_gravity="center"
+            android:text="Acc No : "
             android:textAlignment="center"
-            android:textColor="#ffff"
-            android:textSize="30sp" />
-    </LinearLayout>
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Acc No : "
-        android:textSize="22sp"
-        android:layout_gravity="center"
-        android:textAlignment="center">
-    </TextView>
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"></TextView>
 
         <TextView
             android:id="@+id/textViewAccNo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=" Account no here "
             android:layout_gravity="center"
-            android:textSize="18sp"
-            android:textAlignment="center">
+            android:text=" Account no here "
+            android:layout_marginBottom="20dp"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp">
+
         </TextView>
+    </LinearLayout>
 
 
     <LinearLayout
@@ -76,7 +106,7 @@
             android:layout_weight="1"
             android:background="#ffff"
             android:gravity="center_horizontal"
-            android:text="20"
+            android:text="0"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -171,7 +201,7 @@
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Card Name:"
@@ -181,9 +211,8 @@
 
         <EditText
             android:id="@+id/editTextCardName"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_marginStart="25dp"
             android:layout_weight="1"
             android:background="@drawable/edit_txt_m"
             android:ems="10"
@@ -200,7 +229,7 @@
 
         <TextView
             android:id="@+id/textVieNumber_card"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Card Number:"
@@ -210,9 +239,9 @@
 
         <EditText
             android:id="@+id/editTextNumberPassword"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_marginStart="14dp"
+
             android:layout_weight="1"
             android:background="@drawable/edit_txt_m"
             android:ems="10"
@@ -231,18 +260,18 @@
 
         <TextView
             android:id="@+id/textVieNumber_exp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Exp Date:"
             android:textColor="@android:color/black"
             android:textSize="18sp"
+            android:layout_weight="1"
             android:textStyle="bold" />
 
         <Button
             android:id="@+id/datepicker"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_marginStart="55dp"
             android:layout_weight="1"
             android:background="@drawable/edit_txt_m"
             android:text="select Date" />
@@ -259,7 +288,7 @@
 
         <TextView
             android:id="@+id/textVieCVV"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="CVV:"
@@ -269,9 +298,9 @@
 
         <EditText
             android:id="@+id/editText_CVV"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_marginStart="75dp"
+
             android:layout_weight="1"
             android:background="@drawable/edit_txt_m"
             android:ems="10"
@@ -290,7 +319,7 @@
 
         <TextView
             android:id="@+id/textView_amount"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Amount:"
@@ -300,9 +329,8 @@
 
         <EditText
             android:id="@+id/editText_amount"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_marginStart="50dp"
             android:layout_weight="1"
             android:background="@drawable/edit_txt_m"
             android:ems="10"
@@ -314,22 +342,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_margin="10dp"
         android:orientation="horizontal">
 
 
         <Button
             android:id="@+id/button_pay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="50dp"
-            android:layout_marginBottom="10dp"
-            android:layout_weight="1"
-            android:background="#ababa0"
-            android:drawableLeft="@drawable/payiocnm"
+            android:layout_width="134dp"
+            android:layout_height="37dp"
+            android:layout_gravity="center"
+            android:background="@drawable/custom_btn_d2_red"
+            android:drawableLeft="@drawable/ic_credit_card_black_24dp"
             android:paddingHorizontal="30dp"
-            android:text="Pay" />
+            android:layout_marginLeft="130dp"
+            android:text="Pay"
+            android:textColor="#FFFFFF" />
+
     </LinearLayout>
 
 

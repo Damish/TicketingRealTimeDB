@@ -91,7 +91,7 @@ public class SignUp extends AppCompatActivity {
 
                     String customerId = databasePassenger.push().getKey();
                     showNewAccountDialog(customerId, tokenId, name);
-                    Toast.makeText(view.getContext(), "Open Alert Dialog!!! Token Id : " + tokenId, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(view.getContext(), "Open Alert Dialog!!! Token Id : " + tokenId, Toast.LENGTH_SHORT).show();
 
                 } else {
                     Toast.makeText(view.getContext(), "Fill Blanks", Toast.LENGTH_SHORT).show();

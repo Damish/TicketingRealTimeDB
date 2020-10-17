@@ -34,7 +34,7 @@ import java.util.List;
 public class HomeActivity extends AppCompatActivity {
 
     Button btnLogOut,btnMyTrips,btnAddCredits;
-    TextView textViewUserID;
+    TextView textViewUserID,textViewLoading;
     TextView textViewName1, textViewAccountNo1, textViewPassengerID1, textViewNic1, textViewUsername1;
     EditText editTextTokenGenerated;
 
@@ -57,6 +57,7 @@ public class HomeActivity extends AppCompatActivity {
         textViewUsername1 = findViewById(R.id.textViewUsername1);
         btnMyTrips = findViewById(R.id.btnMyTrips);
         btnAddCredits= findViewById(R.id.btnAddCredits);
+        textViewLoading= findViewById(R.id.textViewLoading);
 
         Bundle bundle = getIntent().getExtras();
         final String UserEmail = bundle.getString("USEREMAIL");
@@ -73,12 +74,13 @@ public class HomeActivity extends AppCompatActivity {
 
                     if (passenger.getUsername().equals(UserEmail)) {
 
-                        Log.d(TAG, "Passenger Name: " + passenger.getName());
-                        Log.d(TAG, "Passenger Acc No: " + passenger.getAccountNo());
-                        Log.d(TAG, "Passenger Id: " + passenger.getId());
-                        Log.d(TAG, "Passenger Nic: " + passenger.getNic());
-                        Log.d(TAG, "Passenger Username: " + passenger.getUsername());
-                        Log.d(TAG, "Passenger Token ID: " + passenger.getTokenID());
+//                        Log.d(TAG, "Passenger Name: " + passenger.getName());
+//                        Log.d(TAG, "Passenger Acc No: " + passenger.getAccountNo());
+//                        Log.d(TAG, "Passenger Id: " + passenger.getId());
+//                        Log.d(TAG, "Passenger Nic: " + passenger.getNic());
+//                        Log.d(TAG, "Passenger Username: " + passenger.getUsername());
+//                        Log.d(TAG, "Passenger Token ID: " + passenger.getTokenID());
+
 
                         editTextTokenGenerated.setText(passenger.getTokenID());
                         textViewName1.setText(passenger.getName());
@@ -86,6 +88,11 @@ public class HomeActivity extends AppCompatActivity {
                         textViewPassengerID1.setText(passenger.getId());
                         textViewNic1.setText(passenger.getNic());
                         textViewUsername1.setText(passenger.getUsername());
+
+
+                        if(!editTextTokenGenerated.getText().toString().equals("")){
+                            textViewLoading.setVisibility(View.GONE);
+                        }
 
                     }
                 }

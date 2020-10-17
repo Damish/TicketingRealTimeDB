@@ -4,7 +4,17 @@
     android:layout_height="match_parent"
     android:background="#2C2C2C">
 
-    <TextView
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+
+        <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,6 +28,21 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="40dp"
     android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView421"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Step 1 :"
+        android:layout_marginBottom="10dp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/textViewUsername"
@@ -129,19 +154,41 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp" />
 
+
     <Button
         android:id="@+id/btn_getToken"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="138dp"
+        android:layout_height="40dp"
         android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/custom_btn_reset_d2"
+        android:drawableStart="@drawable/ic_tap_and_play_black_24dp"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp"
         android:text="Get Token"
-        android:textSize="12sp" />
+        android:textColor="#FFFFFF" />
 
-    <TextView
+            <TextView
+                android:id="@+id/textView423"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Step 2 :"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Auto Generated Token ID :"
@@ -162,15 +209,34 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp" />
 
-
     <Button
         android:id="@+id/btn_addBilling_Account"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="224dp"
+        android:layout_height="40dp"
         android:layout_gravity="center"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/custom_btn_d2_red"
+        android:drawableStart="@drawable/ic_credit_card_black_24dp"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp"
         android:text="Add Billing Account"
-        android:textSize="12sp" />
+        android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/textView424"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Step 3 :"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/textView5"
@@ -195,14 +261,22 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/btn_createAccount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:textSize="17sp"
-        android:layout_marginBottom="20dp"
-        android:text="Create Account"/>
+            <Button
+                android:id="@+id/btn_createAccount"
+                android:layout_width="190dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/custom_btn_d1"
+                android:drawableStart="@drawable/ic_account_circle_black_24dp"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp"
+                android:text="Create Account"
+                android:textColor="#FFFFFF" />
+
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

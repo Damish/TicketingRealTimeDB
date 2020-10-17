@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.damishs.ticketingrealtimedb.Models.Reader;
 import com.damishs.ticketingrealtimedb.R;
+import com.damishs.ticketingrealtimedb.ui.Manager.ManagerHome;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -19,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Admin extends AppCompatActivity {
 
     EditText location, readerName,editTextReaderID;
-    Button btnSignUp, btnLogOut;
+    Button btnSignUp, btnLogOut,btnRouteManagement;
 
     FirebaseAuth mFirebaseAuth;
 
@@ -37,6 +38,7 @@ public class Admin extends AppCompatActivity {
         btnLogOut = findViewById(R.id.btnLogOut);
         readerName = findViewById(R.id.readerName);
         editTextReaderID = findViewById(R.id.editTextReaderID);
+        btnRouteManagement =findViewById(R.id.btnRouteManagement);
 
         databaseReader = FirebaseDatabase.getInstance().getReference("readers");
 
@@ -85,6 +87,15 @@ public class Admin extends AppCompatActivity {
             }
         });
 
+
+        btnRouteManagement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intToMain = new Intent(Admin.this, ManagerHome.class);
+                startActivity(intToMain);
+                finish();
+            }
+        });
 
     }
 }
