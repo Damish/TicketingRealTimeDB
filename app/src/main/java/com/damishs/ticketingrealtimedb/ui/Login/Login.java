@@ -97,21 +97,21 @@ public class Login extends AppCompatActivity {
                 }
                 else if(! (email.isEmpty() && pwd.isEmpty() )){
 
-                    mFirebaseAuth.signInWithEmailAndPassword(emailID.getText().toString().trim(), password.getText().toString().trim()).addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
+                    mFirebaseAuth.signInWithEmailAndPassword(emailID.getText().toString().toLowerCase().trim(), password.getText().toString().trim()).addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(!task.isSuccessful()){
                                 Toast.makeText(Login.this, "Login Error", Toast.LENGTH_SHORT).show();
                             }
                             else{
-                                final String LoggedUserEmail = emailID.getText().toString().trim();
+                                final String LoggedUserEmail = emailID.getText().toString().toLowerCase().trim();
 
                                 if(LoggedUserEmail.equals("Admin@gmail.com")||LoggedUserEmail.equals("admin@gmail.com")){
 
                                     Toast.makeText(Login.this, "FirebaseAdmin : " + LoggedUserEmail, Toast.LENGTH_SHORT).show();
                                     Intent intentToHome = new Intent(Login.this,Admin.class);
                                     Bundle bundle = new Bundle();
-                                    bundle.putString("USEREMAIL",  LoggedUserEmail);
+                                    bundle.putString("USEREMAIL",  LoggedUserEmail.toLowerCase());
                                     intentToHome.putExtras(bundle);
                                     startActivity(intentToHome);
 
@@ -121,7 +121,7 @@ public class Login extends AppCompatActivity {
                                     //Toast.makeText(Login.this, "FirebaseUser : " + LoggedUserEmail, Toast.LENGTH_SHORT).show();
                                     Intent intentToHome = new Intent(Login.this,HomeActivity.class);
                                     Bundle bundle = new Bundle();
-                                    bundle.putString("USEREMAIL",  LoggedUserEmail);
+                                    bundle.putString("USEREMAIL",  LoggedUserEmail.toLowerCase());
                                     intentToHome.putExtras(bundle);
                                     startActivity(intentToHome);
                                 }
