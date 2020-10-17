@@ -106,7 +106,7 @@ public class Login extends AppCompatActivity {
                             else{
                                 final String LoggedUserEmail = emailID.getText().toString().trim();
 
-                                if(LoggedUserEmail.equals("Admin@gmail.com")){
+                                if(LoggedUserEmail.equals("Admin@gmail.com")||LoggedUserEmail.equals("admin@gmail.com")){
 
                                     Toast.makeText(Login.this, "FirebaseAdmin : " + LoggedUserEmail, Toast.LENGTH_SHORT).show();
                                     Intent intentToHome = new Intent(Login.this,Admin.class);
