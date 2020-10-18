@@ -48,7 +48,7 @@ public class LoginReader extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String name = editTextReaderName.getText().toString();
+                String name = editTextReaderName.getText().toString().trim();
 
                 if (name.isEmpty()) {
                     editTextReaderName.setError("Please enter Reader name");
@@ -56,7 +56,7 @@ public class LoginReader extends AppCompatActivity {
                     Toast.makeText(LoginReader.this, "Fill Blanks", Toast.LENGTH_SHORT).show();
                 } else if (!(name.isEmpty())) {
 
-                    databaseReader = FirebaseDatabase.getInstance().getReference("readers").child(editTextReaderName.getText().toString());
+                    databaseReader = FirebaseDatabase.getInstance().getReference("readers").child(editTextReaderName.getText().toString().trim());
 
                     //check if its a token reader
                     databaseReader.addListenerForSingleValueEvent(new ValueEventListener() {

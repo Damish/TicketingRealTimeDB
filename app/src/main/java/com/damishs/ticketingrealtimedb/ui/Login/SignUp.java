@@ -124,12 +124,12 @@ public class SignUp extends AppCompatActivity {
 
                         if (!(TextUtils.isEmpty(name)) && !TextUtils.isEmpty(nic) && !TextUtils.isEmpty(tokenID) && !TextUtils.isEmpty(accountNo) && !TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
 
-                            mFirebaseAuth.createUserWithEmailAndPassword(editTextUsername.getText().toString(), editTextPassword.getText().toString()).addOnCompleteListener(SignUp.this, new OnCompleteListener<AuthResult>() {
+                            mFirebaseAuth.createUserWithEmailAndPassword(editTextUsername.getText().toString().toLowerCase(), editTextPassword.getText().toString()).addOnCompleteListener(SignUp.this, new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()){
 
-                                        Passenger passenger = new Passenger(passengerID, nic, name, tokenID, accountNo, username);
+                                        Passenger passenger = new Passenger(passengerID, nic, name, tokenID, accountNo, username.toLowerCase());
                                         //overwrite data to created id
                                         databasePassenger.child(passengerID).setValue(passenger);
 
@@ -145,7 +145,7 @@ public class SignUp extends AppCompatActivity {
                                         String LoggedUserEmail = username;
                                         Intent intentToHome = new Intent(SignUp.this,HomeActivity.class);
                                         Bundle bundle = new Bundle();
-                                        bundle.putString("USEREMAIL",  LoggedUserEmail);
+                                        bundle.putString("USEREMAIL",  LoggedUserEmail.toLowerCase());
                                         intentToHome.putExtras(bundle);
 
                                         startActivity(intentToHome);
