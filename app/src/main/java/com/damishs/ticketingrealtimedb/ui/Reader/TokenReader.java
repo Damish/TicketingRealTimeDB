@@ -126,8 +126,6 @@ public class TokenReader extends AppCompatActivity {
                     });
                 }
 
-                editTextTokenID.setText("");
-
             }
         });
 
