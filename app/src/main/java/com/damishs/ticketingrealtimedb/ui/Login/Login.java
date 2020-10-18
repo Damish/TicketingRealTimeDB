@@ -111,7 +111,7 @@ public class Login extends AppCompatActivity {
                                     Toast.makeText(Login.this, "FirebaseAdmin : " + LoggedUserEmail, Toast.LENGTH_SHORT).show();
                                     Intent intentToHome = new Intent(Login.this,Admin.class);
                                     Bundle bundle = new Bundle();
-                                    bundle.putString("USEREMAIL",  LoggedUserEmail.toLowerCase());
+                                    bundle.putString("USEREMAIL",  LoggedUserEmail);
                                     intentToHome.putExtras(bundle);
                                     startActivity(intentToHome);
 
@@ -121,7 +121,7 @@ public class Login extends AppCompatActivity {
                                     //Toast.makeText(Login.this, "FirebaseUser : " + LoggedUserEmail, Toast.LENGTH_SHORT).show();
                                     Intent intentToHome = new Intent(Login.this,HomeActivity.class);
                                     Bundle bundle = new Bundle();
-                                    bundle.putString("USEREMAIL",  LoggedUserEmail.toLowerCase());
+                                    bundle.putString("USEREMAIL",  LoggedUserEmail);
                                     intentToHome.putExtras(bundle);
                                     startActivity(intentToHome);
                                 }
